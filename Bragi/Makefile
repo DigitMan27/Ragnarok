@@ -1,11 +1,23 @@
-all:    Bragi
+CXX_FLAGS = -std=c++11
 
-Bragi:   Bragi.o
-	g++ -std=c++11 -o Bragi Bragi.o
+PROGRAM = Bragi
 
-Bragi.o: Bragi.cpp Bragi.h
-	g++ -std=c++11 -c Bragi.cpp
+OBJS = Bragi.o
+
+SRC = Bragi.cpp
+
+HEADER = Bragi.h
+
+CXX = g++
+
+all:    $(PROGRAM)
+
+$(PROGRAM):   $(OBJS)
+	$(CXX) $(CXX_FLAGS) -o $(PROGRAM) $(OBJS)
+
+$(OBJS): $(SRC) $(HEADER)
+	$(CXX) $(CXX_FLAGS) -c $(SRC)
 
 clean: 
-	rm -f Bragi Bragi.o
+	rm -f $(PROGRAM) $(OBJS)
 
