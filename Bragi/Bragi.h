@@ -1,6 +1,8 @@
 #ifndef _BRAGI_
 #define _BRAGI_
 
+#include <iostream>
+
 #ifdef __linux__
 
 /*Libs for Linux Platform*/
