@@ -18,6 +18,9 @@
     <ClCompile Include="Bragi\Bragi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bragi\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bragi\Bragi.h">

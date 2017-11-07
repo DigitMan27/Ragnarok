@@ -112,6 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bragi\Bragi.cpp" />
+    <ClCompile Include="Bragi\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bragi\Bragi.h" />
