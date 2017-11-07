@@ -1,7 +1,7 @@
 #ifndef _BRAGI_
 #define _BRAGI_
 
-#include <iostream>
+//#include <iostream>
 
 #ifdef __linux__
 
