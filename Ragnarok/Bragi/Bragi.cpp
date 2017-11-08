@@ -19,7 +19,7 @@
 		return name;
 	}
 
-	const char* Path()
+	std::string Path()
 	{
 		std::string user = getUser();
 		char buff1[PATH];
@@ -31,7 +31,7 @@
 	std::vector<std::string> ListDir(char* dir) // dir not used yet.
 	{
 		std::vector<std::string> contents;
-		const char* path = Path();
+		std::string path = Path();
 		WIN32_FIND_DATA data;
 		HANDLE hFind = FindFirstFile("C:\\Users\\Hive\\Documents\\*", &data);      // DIRECTORY
 

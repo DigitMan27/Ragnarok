@@ -25,7 +25,7 @@
 	#define PATH 128
 
 	std::string getUser();
-	const char* Path();
+	std::string Path();
 	std::vector<std::string> ListDir(char* dir);
 
 
