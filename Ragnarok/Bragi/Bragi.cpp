@@ -19,15 +19,13 @@
 
 	std::string Path()
 	{
-		std::string user = getUser();
-		std::string path = "C:\\Users\\" + user + "\\Documents\\*";
+		std::string path = "C:\\Users\\" + getUser() + "\\Documents\\*";
 		return path;
 	}
 
 	std::vector<std::string> ListDir(char* dir) // dir not used yet.
 	{
 		std::vector<std::string> contents;
-		std::string path = Path();
 		WIN32_FIND_DATA data;
 		HANDLE hFind = FindFirstFile((LPCSTR)Path().c_str(), &data);      // DIRECTORY
 
