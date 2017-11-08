@@ -13,18 +13,14 @@
 		TCHAR username[LEN + 1];
 		DWORD size = LEN + 1;
 		GetUserName((TCHAR*)username, &size);
-		char buff[PATH];
-		snprintf(buff, sizeof(buff), "%s", username);
-		std::string name = buff;
+		std::string name = username;
 		return name;
 	}
 
 	std::string Path()
 	{
 		std::string user = getUser();
-		char buff1[PATH];
-		snprintf(buff1, sizeof(buff1), "C:\\Users\\%s\\Documents\\*", user); /*A fixed path just for testing*/
-		const char* path = buff1;
+		std::string path = "C:\\Users\\" + user + "\\Documents\\*";
 		return path;
 	}
 
@@ -33,7 +29,7 @@
 		std::vector<std::string> contents;
 		std::string path = Path();
 		WIN32_FIND_DATA data;
-		HANDLE hFind = FindFirstFile("C:\\Users\\Hive\\Documents\\*", &data);      // DIRECTORY
+		HANDLE hFind = FindFirstFile((LPCSTR)Path().c_str(), &data);      // DIRECTORY
 
 		if (hFind != INVALID_HANDLE_VALUE) {
 			do {
