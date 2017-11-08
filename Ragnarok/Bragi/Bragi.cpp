@@ -8,33 +8,33 @@
 	/*++++++++++++++Comming Soon++++++++++++++*/
 	
 	/*Error on getUser function*/
-	std::string getUser()
+	std::wstring getUser()
 	{
-		TCHAR username[LEN + 1];
+		WCHAR username[LEN + 1];
 		DWORD size = LEN + 1;
-		GetUserName((TCHAR*)username, &size);
-		std::string name = username;
+		GetUserNameW((LPWSTR)username, &size);
+		std::wstring name = username;
 		return name;
 	}
 
-	std::string Path()
+	std::wstring Path()
 	{
-		std::string path = "C:\\Users\\" + getUser() + "\\Documents\\*";
+		std::wstring path = L"C:\\Users\\" + getUser() + L"\\Documents\\*";
 		return path;
 	}
 
-	std::vector<std::string> ListDir(char* dir) // dir not used yet.
+	std::vector<std::wstring> ListDir(char* dir) // dir not used yet.
 	{
-		std::vector<std::string> contents;
-		WIN32_FIND_DATA data;
-		HANDLE hFind = FindFirstFile((LPCSTR)Path().c_str(), &data);      // DIRECTORY
+		std::vector<std::wstring> contents;
+		WIN32_FIND_DATAW data;
+		HANDLE hFind = FindFirstFileW((LPCWSTR)Path().c_str(), &data);      // DIRECTORY
 
 		if (hFind != INVALID_HANDLE_VALUE) {
 			do {
 				//std::cout << data.cFileName << std::endl;
-				std::string word(data.cFileName);
+				std::wstring word(data.cFileName);
 				contents.push_back(word);
-			} while (FindNextFile(hFind, &data));
+			} while (FindNextFileW(hFind, &data));
 			FindClose(hFind);
 		}
 		return contents;

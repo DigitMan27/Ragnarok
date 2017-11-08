@@ -24,9 +24,9 @@
 	#define LEN 64
 	#define PATH 128
 
-	std::string getUser();
-	std::string Path();
-	std::vector<std::string> ListDir(char* dir);
+	std::wstring getUser();
+	std::wstring Path();
+	std::vector<std::wstring> ListDir(char* dir);
 
 
 	#endif
