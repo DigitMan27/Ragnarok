@@ -3,5 +3,5 @@
 # Virus Package
 The purpose of this repo is to create as many viruses,malwares,spywares ++ as posible. <br />
 We will start with Bragi...<br />
-1.Bragi -> It will erase all the files from the victims machine as a background process.<br />
+1.Bragi -> It will erase all the files in the deafult OS paths(Documents,Pictures,Downloads..) from the victims machine as a background process.<br />
 More comming soon...<br />
