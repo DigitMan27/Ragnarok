@@ -8,20 +8,20 @@
 	/*++++++++++++++Comming Soon++++++++++++++*/
 	
 	/*Error on getUser function*/
-	const char* getUser()
+	std::string getUser()
 	{
 		TCHAR username[LEN + 1];
 		DWORD size = LEN + 1;
 		GetUserName((TCHAR*)username, &size);
 		char buff[PATH];
 		snprintf(buff, sizeof(buff), "%s", username);
-		const char* name = buff;
+		std::string name = buff;
 		return name;
 	}
 
 	const char* Path()
 	{
-		const char* user = getUser();
+		std::string user = getUser();
 		char buff1[PATH];
 		snprintf(buff1, sizeof(buff1), "C:\\Users\\%s\\Documents\\*", user); /*A fixed path just for testing*/
 		const char* path = buff1;
