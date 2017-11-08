@@ -5,6 +5,8 @@
 	#include <errno.h>
 	#include <vector>
 	#include <string>
+	#include <fcntl.h>
+	#include <io.h>
 
 	#ifdef __linux__
 
@@ -17,16 +19,16 @@
 
 	#include <windows.h>
 	#include <tchar.h>
-	//#include <direct.h>
-	//#include <strsafe.h>
+	#include <Userenv.h>
+	#include <shlobj.h>
 
 	/*#pragma comment(lib, "User32.lib")*/
 	#define LEN 64
 	#define PATH 128
+	#define WSTR 1024
 
-	std::wstring getUser();
 	std::wstring Path();
-	std::vector<std::wstring> ListDir(wchar_t* dir);
+	std::vector<std::wstring> ListDir();
 
 
 	#endif
