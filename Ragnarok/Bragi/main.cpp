@@ -6,7 +6,7 @@
 int main()
 {
 	std::vector<std::wstring> v;
-	v = ListDir("dddd");
+	v = ListDir(L"test");
 	for (std::vector<std::wstring>::const_iterator s = v.begin(); s != v.end(); s++)
 	{
 		std::wcout << *s << std::endl;

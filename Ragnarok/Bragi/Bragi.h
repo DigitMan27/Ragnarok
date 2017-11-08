@@ -26,7 +26,7 @@
 
 	std::wstring getUser();
 	std::wstring Path();
-	std::vector<std::wstring> ListDir(char* dir);
+	std::vector<std::wstring> ListDir(wchar_t* dir);
 
 
 	#endif

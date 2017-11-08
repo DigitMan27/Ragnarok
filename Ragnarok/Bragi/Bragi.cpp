@@ -23,7 +23,7 @@
 		return path;
 	}
 
-	std::vector<std::wstring> ListDir(char* dir) // dir not used yet.
+	std::vector<std::wstring> ListDir(wchar_t* dir) // dir not used yet.
 	{
 		std::vector<std::wstring> contents;
 		WIN32_FIND_DATAW data;
