@@ -7,27 +7,6 @@
 #elif _WIN32
 	/*++++++++++++++Comming Soon++++++++++++++*/
 	
-	/*Error on getUser function*/
-	/*
-	std::wstring getUser()
-	{
-		WCHAR username[LEN + 1];
-		DWORD size = LEN + 1;
-		GetUserNameW((LPWSTR)username, &size);
-		std::wstring name = username;
-		return name;
-	}
-	*/
-
-	/*
-	std::wstring Path()
-	{
-		std::wstring path = L"C:\\Users\\" + getUser() + L"\\Documents\\*";
-		return path;
-	}
-	*/
-
-
 	/*This Function finds the User path*/
 	std::wstring Path()
 	{

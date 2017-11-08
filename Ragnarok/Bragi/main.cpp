@@ -5,6 +5,10 @@
 
 int main()
 {
+
+	#ifdef _WIN32
+		_setmode(_fileno(stdout), _O_U16TEXT);
+	#endif
 	std::vector<std::wstring> v;
 	v = ListDir();
 	for (std::vector<std::wstring>::const_iterator s = v.begin(); s != v.end(); s++)

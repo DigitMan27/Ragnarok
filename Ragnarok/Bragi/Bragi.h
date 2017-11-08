@@ -5,6 +5,8 @@
 	#include <errno.h>
 	#include <vector>
 	#include <string>
+	#include <fcntl.h>
+	#include <io.h>
 
 	#ifdef __linux__
 
@@ -25,7 +27,6 @@
 	#define PATH 128
 	#define WSTR 1024
 
-	//std::wstring getUser();
 	std::wstring Path();
 	std::vector<std::wstring> ListDir();
 
