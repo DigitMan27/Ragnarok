@@ -8,32 +8,26 @@
 	/*++++++++++++++Comming Soon++++++++++++++*/
 	
 	/*Error on getUser function*/
-	const char* getUser()
+	std::string getUser()
 	{
 		TCHAR username[LEN + 1];
 		DWORD size = LEN + 1;
 		GetUserName((TCHAR*)username, &size);
-		char buff[PATH];
-		snprintf(buff, sizeof(buff), "%s", username);
-		const char* name = buff;
+		std::string name = username;
 		return name;
 	}
 
-	const char* Path()
+	std::string Path()
 	{
-		const char* user = getUser();
-		char buff1[PATH];
-		snprintf(buff1, sizeof(buff1), "C:\\Users\\%s\\Documents\\*", user); /*A fixed path just for testing*/
-		const char* path = buff1;
+		std::string path = "C:\\Users\\" + getUser() + "\\Documents\\*";
 		return path;
 	}
 
 	std::vector<std::string> ListDir(char* dir) // dir not used yet.
 	{
 		std::vector<std::string> contents;
-		const char* path = Path();
 		WIN32_FIND_DATA data;
-		HANDLE hFind = FindFirstFile("C:\\Users\\Hive\\Documents\\*", &data);      // DIRECTORY
+		HANDLE hFind = FindFirstFile((LPCSTR)Path().c_str(), &data);      // DIRECTORY
 
 		if (hFind != INVALID_HANDLE_VALUE) {
 			do {
