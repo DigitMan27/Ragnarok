@@ -6,11 +6,13 @@
 int main()
 {
 	std::vector<std::wstring> v;
-	v = ListDir(L"test");
+	v = ListDir();
 	for (std::vector<std::wstring>::const_iterator s = v.begin(); s != v.end(); s++)
 	{
 		std::wcout << *s << std::endl;
 	}
-	system("pause"); // recommended just to see the result (Windows Start without Debugging runs very fast)
-    return EXIT_SUCCESS;
+	#ifdef _WIN32
+		system("pause"); // recommended just to see the result (Windows Start without Debugging runs very fast)
+	#endif
+	return EXIT_SUCCESS;
 }
