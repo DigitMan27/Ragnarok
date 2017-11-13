@@ -41,11 +41,6 @@
 			} while (FindNextFileW(hFind, &data));
 			FindClose(hFind);
 		}
-		/*
-		else
-		{
-			std::wcout << "Error in the HANDLE\n";
-		}*/
 		return contents;
 	}
 
@@ -58,7 +53,7 @@
 		return -1;
 	}
 
-	void cd(std::wstring s) //It will wroks with recursion.I have to split this func into two or more parts in order the recursion works.
+	void cd(std::wstring s) 
 	{
 		std::vector<std::wstring> v{};
 		int e{};
