@@ -10,7 +10,7 @@
 	/*This Function finds the User path*/
 	std::wstring Path()
 	{
-		wchar_t path[WSTR];
+		wchar_t path[PATH];
 		std::wstring wpath;
 		if (SHGetFolderPathW(NULL, CSIDL_PROFILE, NULL, 0, path) == S_OK)
 		{
@@ -41,10 +41,11 @@
 			} while (FindNextFileW(hFind, &data));
 			FindClose(hFind);
 		}
+		/*
 		else
 		{
 			std::wcout << "Error in the HANDLE\n";
-		}
+		}*/
 		return contents;
 	}
 

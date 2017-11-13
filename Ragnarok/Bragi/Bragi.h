@@ -4,7 +4,6 @@
 	#include <iostream>
 	#include <errno.h>
 	#include <vector>
-	#include <stack>
 	#include <string>
 	#include <fcntl.h>
 	#include <io.h>
@@ -28,9 +27,8 @@
 	#include <Shlwapi.h>
 
 	#pragma comment(lib, "Shlwapi.lib")
-	#define LEN 64
-	#define PATH 512
-	#define WSTR 1024
+	
+	#define PATH 2048
 
 	std::wstring Path();
 	bool Dot(const wchar_t* str);

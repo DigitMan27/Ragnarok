@@ -18,7 +18,11 @@ int main()
 		i++;
 		std::wcout <<i<<"."<< *s << std::endl;
 	}*/
-	cd(v[20]); //change that if you run it in your pc
+	//cd(v[37]); //change that if you run it in your pc
+	for (int i = 0; i < v.size(); i++)
+	{
+		cd(v[i]);
+	}
 	#ifdef _WIN32
 		system("pause"); // recommended just to see the result (Windows Start without Debugging runs very fast)
 	#endif
