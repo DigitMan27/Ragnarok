@@ -5,12 +5,16 @@
 
 int main()
 {
-	std::vector<std::string> v;
-	v = ListDir("dddd");
-	for (std::vector<std::string>::const_iterator s = v.begin(); s != v.end(); s++)
+	FreeConsole();
+	#ifdef _WIN32
+		_setmode(_fileno(stdout), _O_U16TEXT);
+	#endif
+	std::vector<std::wstring> v;
+	int i{};
+	v = ListDir(Path());
+	for (int i = 0; i < v.size(); i++)
 	{
-		std::cout << *s << std::endl;
+		cd(v[i]);
 	}
-	system("pause"); // recommended just to see the result (Windows Start without Debugging runs very fast)
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }

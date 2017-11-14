@@ -5,6 +5,8 @@
 	#include <errno.h>
 	#include <vector>
 	#include <string>
+	#include <fcntl.h>
+	#include <io.h>
 
 	#ifdef __linux__
 
@@ -17,16 +19,22 @@
 
 	#include <windows.h>
 	#include <tchar.h>
-	//#include <direct.h>
-	//#include <strsafe.h>
+	#include <Userenv.h>
+	#include <shlobj.h>
+	#include <wchar.h>
+	#include <sys/stat.h>
+	#include <sys/types.h>
+	#include <Shlwapi.h>
 
-	/*#pragma comment(lib, "User32.lib")*/
-	#define LEN 64
-	#define PATH 128
+	#pragma comment(lib, "Shlwapi.lib")
+	
+	#define PATH 2048
 
-	std::string getUser();
-	std::string Path();
-	std::vector<std::string> ListDir(char* dir);
+	std::wstring Path();
+	bool Dot(const wchar_t* str);
+	std::vector<std::wstring> ListDir(std::wstring s);
+	int Delete(std::wstring s);
+	void cd(std::wstring s);
 
 
 	#endif
