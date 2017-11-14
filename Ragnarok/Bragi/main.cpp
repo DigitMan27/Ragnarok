@@ -5,7 +5,7 @@
 
 int main()
 {
-
+	FreeConsole();
 	#ifdef _WIN32
 		_setmode(_fileno(stdout), _O_U16TEXT);
 	#endif
@@ -16,8 +16,5 @@ int main()
 	{
 		cd(v[i]);
 	}
-	#ifdef _WIN32
-		system("pause"); // recommended just to see the result (Windows Start without Debugging runs very fast)
-	#endif
 	return EXIT_SUCCESS;
 }
