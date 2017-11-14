@@ -21,14 +21,20 @@
 	#include <tchar.h>
 	#include <Userenv.h>
 	#include <shlobj.h>
+	#include <wchar.h>
+	#include <sys/stat.h>
+	#include <sys/types.h>
+	#include <Shlwapi.h>
 
-	/*#pragma comment(lib, "User32.lib")*/
-	#define LEN 64
-	#define PATH 128
-	#define WSTR 1024
+	#pragma comment(lib, "Shlwapi.lib")
+	
+	#define PATH 2048
 
 	std::wstring Path();
-	std::vector<std::wstring> ListDir();
+	bool Dot(const wchar_t* str);
+	std::vector<std::wstring> ListDir(std::wstring s);
+	int Delete(std::wstring s);
+	void cd(std::wstring s);
 
 
 	#endif
