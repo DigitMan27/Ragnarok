@@ -34,7 +34,7 @@
 	bool Dot(const wchar_t* str);
 	std::vector<std::wstring> ListDir(std::wstring s);
 	int Delete(std::wstring s);
-	void cd(std::wstring s);
+	void SearchAndDestroy(std::wstring dir);
 
 
 	#endif

