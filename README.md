@@ -8,9 +8,10 @@ The purpose of this repository is to demonstrate how malware (of any form) is cr
 
 | Project | Description |
 | --- | --- |
-| Bragi | Deletes recursively all files under the %USERPROFILE% path |
-| Skadi | Causes Kernel Panic Error on Linux & MacOS / BSOD on Windows |
+| Bragi | Deletes recursively all data kept in the user directory |
+| Skadi | Causes Kernel Panic Error / Blue Screen Of Death |
 
 More comming soon...
 
-**NOTICE ** The owner (including all contributors) claim no responsibility for any malicious use of the source code.
+## Notice
+The owner of this repository claims no responsibility for any malicious use of the source code.
