@@ -2,13 +2,13 @@ CXX_FLAGS = -std=c++11
 
 PROGRAM = Bragi
 
-OBJS = Bragi.o 
+OBJS = Bragi.o
 
-MAIN_O = main.o
+MAIN_O = Main.o
 
 SRC = Bragi.cpp
 
-MAIN = main.cpp
+MAIN = Main.cpp
 
 HEADER = Bragi.h
 
@@ -25,6 +25,5 @@ $(MAIN_O):  $(MAIN)
 $(OBJS): $(SRC) $(HEADER)
 	$(CXX) $(CXX_FLAGS) -c $(SRC)
 
-clean: 
+clean:
 	rm -f $(PROGRAM) $(OBJS) $(MAIN_O)
-
