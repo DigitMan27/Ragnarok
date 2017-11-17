@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bragi\Bragi.cpp">
+    <ClCompile Include="Bragi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bragi\main.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bragi\Bragi.h">
+    <ClInclude Include="Bragi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

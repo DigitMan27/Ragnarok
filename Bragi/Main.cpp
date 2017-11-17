@@ -5,10 +5,10 @@ int main()
 {
 	// Hide Console
 	FreeConsole();
-	#ifdef _WIN32
-		// Support UTF-16 Encoding
-		_setmode(_fileno(stdout), _O_U16TEXT);
-	#endif
+#ifdef _WIN32
+	// Support UTF-16 Encoding
+	_setmode(_fileno(stdout), _O_U16TEXT);
+#endif
 	// This vector keeps all directories
 	std::vector<std::wstring> directories;
 	directories = ListDir(Path());
