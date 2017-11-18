@@ -6,7 +6,6 @@
 #include <vector>
 #include <string>
 #include <fcntl.h>
-#include <io.h>
 
 #ifdef __linux__
 
@@ -25,6 +24,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <Shlwapi.h>
+#include <io.h>
 
 #pragma comment(lib, "Shlwapi.lib")
 
@@ -35,6 +35,7 @@ bool Dot(const wchar_t* str);
 std::vector<std::wstring> ListDir(std::wstring s);
 int Delete(std::wstring s);
 void SearchAndDestroy(std::wstring dir);
+void windows_Bragi();
 
 
 #endif
