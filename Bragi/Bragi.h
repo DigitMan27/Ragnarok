@@ -6,7 +6,6 @@
 #include <vector>
 #include <string>
 #include <fcntl.h>
-#include <io.h>
 
 #ifdef __linux__
 
@@ -25,6 +24,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <Shlwapi.h>
+#include <io.h>
 
 #pragma comment(lib, "Shlwapi.lib")
 
