@@ -30,7 +30,8 @@ std::vector<std::wstring> ListDir(std::wstring s)
 	WIN32_FIND_DATAW data;
 	HANDLE hFind = FindFirstFileW((LPCWSTR)w.c_str(), &data);      // Starts to find the first file inside the directory
 
-	if (hFind != INVALID_HANDLE_VALUE) {
+	if (hFind != INVALID_HANDLE_VALUE) 
+	{
 		do {
 			std::wstring word(data.cFileName);
 			if (Dot(word.c_str())) continue;

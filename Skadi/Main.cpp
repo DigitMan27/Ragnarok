@@ -1,10 +1,11 @@
 #include "Skadi.h"
 
-int main() {
+int main() 
+{
 #ifdef __linux__
 	linux_skadi();
 #elif _WIN32
 	windows_skadi();
 #endif
-	return 0;
+	return EXIT_SUCCESS;
 }
