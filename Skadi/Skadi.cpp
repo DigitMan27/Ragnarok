@@ -13,8 +13,6 @@ void linux_skadi()
 
 #elif _WIN32
 
-
-
 bool FileExists(std::wstring fileName)
 {
 	DWORD fileAttr;

