@@ -1,5 +1,5 @@
 # Ragnarok
-Status : [![Build status](https://ci.appveyor.com/api/projects/status/3galj3dtpns4wf9l?svg=true)](https://ci.appveyor.com/project/xorz57/ragnarok)
+Status : [![Build status](https://ci.appveyor.com/api/projects/status/m6rofsksloxtj0e8?svg=true)](https://ci.appveyor.com/project/DigitMan27/ragnarok)
 
 ## About
 
